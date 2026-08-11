@@ -10,7 +10,9 @@ SHARDS = {
     "Void": 0,
     "Sacred": 0,
     "Primal": 0,
-    "Mythical": 0
+    "Mythical": 0,
+    "Prism": 0,
+    "Remnant": 0
 }
 
 TEN_PULL_SHARDS = ["Ancient", "Void"]
@@ -20,14 +22,18 @@ SHARD_COLOURS = {
     "Void": "#b060ff",
     "Sacred": "#ffcc33",
     "Primal": "#ff5533",
-    "Mythical": "#ff5533"
+    "Mythical": "#ff5533",
+    "Prism": "#ffffff",
+    "Remnant": "#8b0000"
 }
 
 SHARD_IMAGES = {
     "Ancient": "ancient.png",
     "Void": "void.png",
     "Sacred": "sacred.png",
-    "Primal": "primal.png"
+    "Primal": "primal.png",
+    "Prism": "prism.png",
+    "Remnant": "remnant.png"
 }
 
 # Load saved counts if available
@@ -110,7 +116,7 @@ title.pack(pady=10)
 
 loaded_images = {}
 
-for shard in ["Ancient", "Void", "Sacred", "Primal"]:
+for shard in ["Ancient", "Void", "Sacred", "Primal", "Prism", "Remnant"]:
     colour = SHARD_COLOURS[shard]
     glow = lighten(colour, 80)
 
@@ -126,8 +132,7 @@ for shard in ["Ancient", "Void", "Sacred", "Primal"]:
         tk.Label(outer_frame, text="?", fg="white", bg="#0f0f0f",
                  font=("Arial", 20, "bold")).grid(row=0, column=0, padx=(10, 10))
 
-    # FIXED: Primal box height reduced from 135 → 120
-    panel_height = 85 if shard != "Primal" else 120
+    panel_height = 120 if shard == "Primal" else 85
 
     panel = tk.Canvas(outer_frame, width=540, height=panel_height, bg="#0f0f0f", highlightthickness=0)
     panel.grid(row=0, column=1)
